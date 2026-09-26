@@ -1,6 +1,8 @@
 package com.khazoda.baseline;
 
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
 import java.util.Collections;
@@ -14,12 +16,19 @@ public record ServerConfigSyncPayload(KhazConfigSync sync, Map<String, String> s
     serverValues = Collections.unmodifiableMap(new LinkedHashMap<>(serverValues));
   }
 
+  private static StreamCodec<RegistryFriendlyByteBuf, ServerConfigSyncPayload> codec(KhazConfigSync sync) {
+    return ByteBufCodecs.<RegistryFriendlyByteBuf, String, String, Map<String, String>>map(LinkedHashMap::new, ByteBufCodecs.STRING_UTF8, ByteBufCodecs.STRING_UTF8).map(
+            m -> new ServerConfigSyncPayload(sync, m),
+            ServerConfigSyncPayload::serverValues
+    );
+  }
+
   static ServerConfigSyncPayload read(KhazConfigSync sync, RegistryFriendlyByteBuf buffer) {
-    return new ServerConfigSyncPayload(sync, buffer.readMap(LinkedHashMap::new, input -> input.readUtf(), input -> input.readUtf()));
+    return codec(sync).decode(buffer);
   }
 
   void write(RegistryFriendlyByteBuf buffer) {
-    buffer.writeMap(serverValues, (output, value) -> output.writeUtf(value), (output, value) -> output.writeUtf(value));
+    codec(sync).encode(buffer, this);
   }
 
   @Override

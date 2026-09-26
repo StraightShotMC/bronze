@@ -1,13 +1,13 @@
 package com.khazoda.bronze.datagen;
 
-import com.khazoda.bronze.material.BronzeMaterial;
-import com.khazoda.bronze.material.TinMaterial;
 import com.khazoda.bronze.registry.MainRegistry;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+
+import java.util.Map;
 
 public class BronzeModModelProvider extends FabricModelProvider {
   public BronzeModModelProvider(FabricPackOutput output) {
@@ -48,10 +48,34 @@ public class BronzeModModelProvider extends FabricModelProvider {
     itemModelGenerators.generateFlatItem(MainRegistry.TIN_SHOVEL.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     itemModelGenerators.generateFlatItem(MainRegistry.TIN_HOE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     itemModelGenerators.generateFlatItem(MainRegistry.TIN_KNIFE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.TIN_HELMET.get(), TinMaterial.TIN_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.TIN_CHESTPLATE.get(), TinMaterial.TIN_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.TIN_LEGGINGS.get(), TinMaterial.TIN_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.TIN_BOOTS.get(), TinMaterial.TIN_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.TIN_HELMET.get(),
+            ItemModelGenerators.TRIM_PREFIX_HELMET,
+//            TinMaterial.TIN_ARMOR_MATERIAL_KEY,
+            false,
+            Map.of()
+            );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.TIN_CHESTPLATE.get(),
+            ItemModelGenerators.TRIM_PREFIX_CHESTPLATE,
+            false,
+//            TinMaterial.TIN_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.TIN_LEGGINGS.get(),
+            ItemModelGenerators.TRIM_PREFIX_LEGGINGS,
+            false,
+//            TinMaterial.TIN_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.TIN_BOOTS.get(),
+            ItemModelGenerators.TRIM_PREFIX_BOOTS,
+            false,
+//            TinMaterial.TIN_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
 
     itemModelGenerators.generateFlatItem(MainRegistry.BRONZE_BLEND.get(), ModelTemplates.FLAT_ITEM);
     itemModelGenerators.generateFlatItem(MainRegistry.BRONZE_NUGGET.get(), ModelTemplates.FLAT_ITEM);
@@ -67,9 +91,33 @@ public class BronzeModModelProvider extends FabricModelProvider {
     itemModelGenerators.generateFlatItem(MainRegistry.SICKLE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     itemModelGenerators.generateFlatItem(MainRegistry.BRONZE_KNIFE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
     itemModelGenerators.generateFlatItem(MainRegistry.BRONZE_COIN.get(), ModelTemplates.FLAT_ITEM);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.BRONZE_HELMET.get(), BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_HELMET, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.BRONZE_CHESTPLATE.get(), BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_CHESTPLATE, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.BRONZE_LEGGINGS.get(), BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_LEGGINGS, false);
-    itemModelGenerators.generateTrimmableItem(MainRegistry.BRONZE_BOOTS.get(), BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY, ItemModelGenerators.TRIM_PREFIX_BOOTS, false);
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.BRONZE_HELMET.get(),
+            ItemModelGenerators.TRIM_PREFIX_HELMET,
+            false,
+//            BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.BRONZE_CHESTPLATE.get(),
+            ItemModelGenerators.TRIM_PREFIX_CHESTPLATE,
+            false,
+//            BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.BRONZE_LEGGINGS.get(),
+            ItemModelGenerators.TRIM_PREFIX_LEGGINGS,
+            false,
+//            BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
+    itemModelGenerators.generateTrimmableItem(
+            MainRegistry.BRONZE_BOOTS.get(),
+            ItemModelGenerators.TRIM_PREFIX_BOOTS,
+            false,
+//            BronzeMaterial.BRONZE_ARMOR_MATERIAL_KEY,
+            Map.of()
+    );
   }
 }

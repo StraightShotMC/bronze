@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/cut_tin"
+        "recipes": "bronze:crafting/cut_tin"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

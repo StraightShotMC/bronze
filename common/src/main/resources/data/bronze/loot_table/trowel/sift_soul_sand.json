@@ -42,7 +42,7 @@
       "entries": [
         {
           "type": "minecraft:tag",
-          "name": "bronze:trowel/soul_treasures",
+          "items": "#bronze:trowel/soul_treasures",
           "expand": true
         }
       ]
@@ -58,7 +58,7 @@
       "entries": [
         {
           "type": "minecraft:tag",
-          "name": "bronze:trowel/soul_treasures_rare",
+          "items": "#bronze:trowel/soul_treasures_rare",
           "expand": true
         }
       ]

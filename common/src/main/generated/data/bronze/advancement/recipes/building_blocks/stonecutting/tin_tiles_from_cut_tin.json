@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:stonecutting/tin_tiles_from_cut_tin"
+        "recipes": "bronze:stonecutting/tin_tiles_from_cut_tin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/tin_framed_glass"
+        "recipes": "bronze:crafting/tin_framed_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

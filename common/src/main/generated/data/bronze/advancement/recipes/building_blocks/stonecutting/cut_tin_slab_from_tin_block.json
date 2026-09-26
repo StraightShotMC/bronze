@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:stonecutting/cut_tin_slab_from_tin_block"
+        "recipes": "bronze:stonecutting/cut_tin_slab_from_tin_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

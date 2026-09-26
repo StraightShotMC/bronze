@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:smelting/tin_nugget_from_smelting"
+        "recipes": "bronze:smelting/tin_nugget_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -14,7 +14,7 @@ public class BronzeDoor extends DoorBlock {
     super(BlockSetType.IRON, Properties.of().noOcclusion().requiresCorrectToolForDrops()
         .strength(5.5f)
         .instrument(NoteBlockInstrument.IRON_XYLOPHONE)
-        .pushReaction(PushReaction.DESTROY)
+        .pushReaction(PushReaction.POPPED)
         .mapColor(MapColor.GOLD)
         .sound(SoundType.METAL)
         .setId(id));

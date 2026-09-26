@@ -22,7 +22,15 @@ public final class BronzeAdvancements {
   public static void generate(Consumer<AdvancementHolder> advancementConsumer) {
     AdvancementHolder gotTinIngotAdvancement = Advancement.Builder.advancement()
         .parent(Identifier.withDefaultNamespace("story/upgrade_tools"))
-        .display(MainRegistry.TIN_INGOT.get(), Component.translatable("advancement.bronze.got_tin_ingot.title"), Component.translatable("advancement.bronze.got_tin_ingot.description"), null, AdvancementType.TASK, true, true, false)
+        .display(
+                MainRegistry.TIN_INGOT.get(),
+                Component.translatable("advancement.bronze.got_tin_ingot.title"),
+                Component.translatable("advancement.bronze.got_tin_ingot.description"),
+                AdvancementType.TASK,
+                true,
+                true,
+                false
+        )
         .addCriterion("got_tin_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.TIN_INGOT.get()))
         .rewards(AdvancementRewards.Builder.recipe(recipeKey("crafting/tin_block"))
             .addRecipe(recipeKey("crafting/tin_nugget"))
@@ -49,7 +57,7 @@ public final class BronzeAdvancements {
 
     AdvancementHolder gotCutTinAdvancement = Advancement.Builder.advancement()
         .parent(gotTinIngotAdvancement)
-        .display(MainRegistry.CUT_TIN.get(), Component.translatable("advancement.bronze.got_cut_tin.title"), Component.translatable("advancement.bronze.got_cut_tin.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.CUT_TIN.get().asItem(), Component.translatable("advancement.bronze.got_cut_tin.title"), Component.translatable("advancement.bronze.got_cut_tin.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_cut_tin", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.CUT_TIN.get()))
         .rewards(AdvancementRewards.Builder.recipe(recipeKey("crafting/tin_tiles"))
             .addRecipe(recipeKey("stonecutting/chiseled_tin_from_cut_tin"))
@@ -64,7 +72,7 @@ public final class BronzeAdvancements {
 
     AdvancementHolder gotBronzeBlendAdvancement = Advancement.Builder.advancement()
         .parent(Identifier.withDefaultNamespace("story/upgrade_tools"))
-        .display(MainRegistry.BRONZE_BLEND.get(), Component.translatable("advancement.bronze.got_bronze_blend.title"), Component.translatable("advancement.bronze.got_bronze_blend.description"), null, AdvancementType.TASK, true, false, false)
+        .display(MainRegistry.BRONZE_BLEND.get(), Component.translatable("advancement.bronze.got_bronze_blend.title"), Component.translatable("advancement.bronze.got_bronze_blend.description"), AdvancementType.TASK, true, false, false)
         .addCriterion("got_bronze_blend", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_BLEND.get()))
         .rewards(AdvancementRewards.Builder.recipe(recipeKey("smelting/bronze_ingot_from_smelting_bronze_blend"))
             .addRecipe(recipeKey("smelting/bronze_ingot_from_blasting_bronze_blend"))
@@ -74,7 +82,7 @@ public final class BronzeAdvancements {
 
     AdvancementHolder gotBronzeIngotAdvancement = Advancement.Builder.advancement()
         .parent(gotBronzeBlendAdvancement)
-        .display(MainRegistry.BRONZE_INGOT.get(), Component.translatable("advancement.bronze.got_bronze_ingot.title"), Component.translatable("advancement.bronze.got_bronze_ingot.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.BRONZE_INGOT.get(), Component.translatable("advancement.bronze.got_bronze_ingot.title"), Component.translatable("advancement.bronze.got_bronze_ingot.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_INGOT.get()))
         .rewards(AdvancementRewards.Builder.recipe(recipeKey("crafting/bronze_helmet"))
             .addRecipe(recipeKey("crafting/bronze_chestplate"))
@@ -99,7 +107,7 @@ public final class BronzeAdvancements {
 
     advancementConsumer.accept(Advancement.Builder.advancement()
         .parent(gotBronzeIngotAdvancement)
-        .display(MainRegistry.BRONZE_CHESTPLATE.get(), Component.translatable("advancement.bronze.got_bronze_chestplate.title"), Component.translatable("advancement.bronze.got_bronze_chestplate.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.BRONZE_CHESTPLATE.get(), Component.translatable("advancement.bronze.got_bronze_chestplate.title"), Component.translatable("advancement.bronze.got_bronze_chestplate.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_bronze_helmet", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_HELMET.get()))
         .addCriterion("got_bronze_chestplate", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_CHESTPLATE.get()))
         .addCriterion("got_bronze_leggings", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_LEGGINGS.get()))
@@ -108,19 +116,19 @@ public final class BronzeAdvancements {
 
     advancementConsumer.accept(Advancement.Builder.advancement()
         .parent(gotBronzeIngotAdvancement)
-        .display(MainRegistry.SICKLE.get(), Component.translatable("advancement.bronze.got_sickle.title"), Component.translatable("advancement.bronze.got_sickle.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.SICKLE.get(), Component.translatable("advancement.bronze.got_sickle.title"), Component.translatable("advancement.bronze.got_sickle.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_sickle", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.SICKLE.get()))
         .build(ID("bronze/got_sickle")));
 
     advancementConsumer.accept(Advancement.Builder.advancement()
         .parent(gotBronzeIngotAdvancement)
-        .display(MainRegistry.TROWEL.get(), Component.translatable("advancement.bronze.got_trowel.title"), Component.translatable("advancement.bronze.got_trowel.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.TROWEL.get(), Component.translatable("advancement.bronze.got_trowel.title"), Component.translatable("advancement.bronze.got_trowel.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_trowel", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.TROWEL.get()))
         .build(ID("bronze/got_trowel")));
 
     advancementConsumer.accept(Advancement.Builder.advancement()
         .parent(gotBronzeIngotAdvancement)
-        .display(MainRegistry.BRONZE_PICKAXE.get(), Component.translatable("advancement.bronze.got_bronze_pickaxe.title"), Component.translatable("advancement.bronze.got_bronze_pickaxe.description"), null, AdvancementType.TASK, true, true, false)
+        .display(MainRegistry.BRONZE_PICKAXE.get(), Component.translatable("advancement.bronze.got_bronze_pickaxe.title"), Component.translatable("advancement.bronze.got_bronze_pickaxe.description"), AdvancementType.TASK, true, true, false)
         .addCriterion("got_bronze_pickaxe", InventoryChangeTrigger.TriggerInstance.hasItems(MainRegistry.BRONZE_PICKAXE.get()))
         .build(ID("bronze/got_bronze_pickaxe")));
 

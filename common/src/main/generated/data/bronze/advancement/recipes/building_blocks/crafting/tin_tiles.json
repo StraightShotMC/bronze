@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/tin_tiles"
+        "recipes": "bronze:crafting/tin_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

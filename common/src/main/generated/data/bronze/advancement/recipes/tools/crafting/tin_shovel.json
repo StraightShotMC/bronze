@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/tin_shovel"
+        "recipes": "bronze:crafting/tin_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

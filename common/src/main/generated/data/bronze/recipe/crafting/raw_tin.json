@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "raw_tin",
   "ingredients": [
     "bronze:raw_tin_block"

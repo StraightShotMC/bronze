@@ -8,6 +8,7 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -20,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -157,7 +159,7 @@ public class Sickle extends Item {
     Block currentBlock = currentBlockState.getBlock();
     if (entity instanceof Player player) {
       if (level.getBlockState(pos).getBlock() == currentBlock) {
-        currentBlock.playerDestroy(level, player, pos, currentBlockState, null, player.getMainHandItem());
+        currentBlock.playerDestroy((ServerLevel) level, (ServerPlayer) player, pos, currentBlockState, null, player.getMainHandItem());
         level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
 
         // Add block breaking particles
@@ -236,7 +238,7 @@ public class Sickle extends Item {
 
   private static void playSweepFeedback(ServerLevel level, Player player, InteractionHand hand, BlockPos pos, BlockState state, float volume, float pitch) {
     level.playSound(null, pos, state.getSoundType().getBreakSound(), SoundSource.BLOCKS, volume, pitch);
-    player.swing(hand, true);
+    player.swing(hand, SwingAnimation.DEFAULT, true);
     level.sendParticles(ParticleTypes.SWEEP_ATTACK, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
   }
 
@@ -324,7 +326,7 @@ public class Sickle extends Item {
           if (result.consumesAction()) {
             selfHarvested = true;
           } else {
-            currentState.getBlock().playerDestroy(level, player, current, currentState, null, player.getMainHandItem());
+            currentState.getBlock().playerDestroy((ServerLevel) level, (ServerPlayer) player, current, currentState, null, player.getMainHandItem());
           }
         } else {
           Block.dropResources(currentState, level, current, null, entity, ItemStack.EMPTY);

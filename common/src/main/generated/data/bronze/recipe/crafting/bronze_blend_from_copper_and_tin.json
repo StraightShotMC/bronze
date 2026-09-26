@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "bronze_blend",
   "ingredients": [
     "#c:raw_materials/copper",

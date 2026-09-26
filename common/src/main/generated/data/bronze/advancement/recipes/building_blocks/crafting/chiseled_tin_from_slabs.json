@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/chiseled_tin_from_slabs"
+        "recipes": "bronze:crafting/chiseled_tin_from_slabs"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

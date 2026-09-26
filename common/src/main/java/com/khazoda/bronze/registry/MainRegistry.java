@@ -49,10 +49,10 @@ public final class MainRegistry {
   public static final Entry<Item> TIN_NAUTILUS_ARMOR = reg.nautilusArmor("tin_nautilus_armor", TinMaterial.ARMOR).addToTab(TAB);
   public static final Entry<Item> TIN_SWORD = reg.sword("tin_sword", TinMaterial.TOOL, 3.0F, -2.4F).addToTab(TAB);
   public static final Entry<Item> TIN_SPEAR = reg.spear("tin_spear", TinMaterial.TOOL, 0.85F, 0.82F, 0.65F, 4.0F, 9.0F, 8.25F, 5.1F, 12.5F, 4.6F).addToTab(TAB);
-  public static final Entry<AxeItem> TIN_AXE = reg.axe("tin_axe", TinMaterial.TOOL, 7F, -3.1F).addToTab(TAB);
+  public static final Entry<Item> TIN_AXE = reg.axe("tin_axe", TinMaterial.TOOL, 7F, -3.1F).addToTab(TAB);
   public static final Entry<Item> TIN_PICKAXE = reg.pickaxe("tin_pickaxe", TinMaterial.TOOL, 1.0F, -2.8F).addToTab(TAB);
-  public static final Entry<ShovelItem> TIN_SHOVEL = reg.shovel("tin_shovel", TinMaterial.TOOL, 1.5F, -3.0F).addToTab(TAB);
-  public static final Entry<HoeItem> TIN_HOE = reg.hoe("tin_hoe", TinMaterial.TOOL, -2.0F, 0.0F).addToTab(TAB);
+  public static final Entry<Item> TIN_SHOVEL = reg.shovel("tin_shovel", TinMaterial.TOOL, 1.5F, -3.0F).addToTab(TAB);
+  public static final Entry<Item> TIN_HOE = reg.hoe("tin_hoe", TinMaterial.TOOL, -2.0F, 0.0F).addToTab(TAB);
   public static final Entry<Item> TIN_HELMET = reg.humanoidArmor("tin_helmet", TinMaterial.ARMOR, ArmorType.HELMET).addToTab(TAB);
   public static final Entry<Item> TIN_CHESTPLATE = reg.humanoidArmor("tin_chestplate", TinMaterial.ARMOR, ArmorType.CHESTPLATE).addToTab(TAB);
   public static final Entry<Item> TIN_LEGGINGS = reg.humanoidArmor("tin_leggings", TinMaterial.ARMOR, ArmorType.LEGGINGS).addToTab(TAB);
@@ -65,10 +65,10 @@ public final class MainRegistry {
   public static final Entry<Item> BRONZE_NAUTILUS_ARMOR = reg.nautilusArmor("bronze_nautilus_armor", BronzeMaterial.ARMOR).addToTab(TAB);
   public static final Entry<Item> BRONZE_SWORD = reg.sword("bronze_sword", BronzeMaterial.TOOL, 3.0F, -2.4F).addToTab(TAB);
   public static final Entry<Item> BRONZE_SPEAR = reg.spear("bronze_spear", BronzeMaterial.TOOL, 0.95F, 0.95F, 0.6F, 2.5F, 8.0F, 6.75F, 5.1F, 11.25F, 4.6F).addToTab(TAB);
-  public static final Entry<AxeItem> BRONZE_AXE = reg.axe("bronze_axe", BronzeMaterial.TOOL, 6F, -3.1F).addToTab(TAB);
+  public static final Entry<Item> BRONZE_AXE = reg.axe("bronze_axe", BronzeMaterial.TOOL, 6F, -3.1F).addToTab(TAB);
   public static final Entry<Item> BRONZE_PICKAXE = reg.pickaxe("bronze_pickaxe", BronzeMaterial.TOOL, 1.0F, -2.8F).addToTab(TAB);
-  public static final Entry<ShovelItem> BRONZE_SHOVEL = reg.shovel("bronze_shovel", BronzeMaterial.TOOL, 1.5F, -3.0F).addToTab(TAB);
-  public static final Entry<HoeItem> BRONZE_HOE = reg.hoe("bronze_hoe", BronzeMaterial.TOOL, -2.0F, 0.0F).addToTab(TAB);
+  public static final Entry<Item> BRONZE_SHOVEL = reg.shovel("bronze_shovel", BronzeMaterial.TOOL, 1.5F, -3.0F).addToTab(TAB);
+  public static final Entry<Item> BRONZE_HOE = reg.hoe("bronze_hoe", BronzeMaterial.TOOL, -2.0F, 0.0F).addToTab(TAB);
   public static final Entry<Sickle> SICKLE = reg.item("bronze_sickle", Sickle::create).addToTab(TAB);
   public static final Entry<Trowel> TROWEL = reg.item("trowel", Trowel::create).addToTab(TAB);
   public static final Entry<Item> BRONZE_HELMET = reg.humanoidArmor("bronze_helmet", BronzeMaterial.ARMOR, ArmorType.HELMET).addToTab(TAB);

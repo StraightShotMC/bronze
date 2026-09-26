@@ -8,15 +8,10 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemDamageFunction;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraft.world.level.storage.loot.providers.number.floats.ContextFloatProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static net.minecraft.core.registries.Registries.LOOT_TABLE;
 import static net.minecraft.world.level.storage.loot.BuiltInLootTables.*;
@@ -100,31 +95,31 @@ public class LootTables {
 
     if (config.enchanted() && !enchantableItems.isEmpty()) {
       // Add 0-1 enchanted items
-      LootPool.Builder enchantedPool = createBasePoolBuilder(enchantableItems, 1f)
+      LootPool.Builder enchantedPool = createBasePoolBuilder(enchantableItems, 1)
           .apply(EnchantRandomlyFunction.randomEnchantment());
       if (config.applyDamage()) applyDamage(enchantedPool);
       tableBuilder.withPool(enchantedPool);
 
       // Add 0-1 unenchanted enchantable items
-      LootPool.Builder normalEnchantablePool = createBasePoolBuilder(enchantableItems, 1f);
+      LootPool.Builder normalEnchantablePool = createBasePoolBuilder(enchantableItems, 1);
       if (config.applyDamage()) applyDamage(normalEnchantablePool);
       tableBuilder.withPool(normalEnchantablePool);
     } else {
       // Add 0-2 unenchanted items
-      LootPool.Builder pool = createBasePoolBuilder(config.items(), 2f);
+      LootPool.Builder pool = createBasePoolBuilder(config.items(), 2);
       if (config.applyDamage()) applyDamageToEnchantableItems(pool, config.items());
       tableBuilder.withPool(pool);
     }
 
     if (config.enchanted() && !nonEnchantableItems.isEmpty()) {
-      LootPool.Builder nonEnchantablePool = createBasePoolBuilder(nonEnchantableItems, 2f);
+      LootPool.Builder nonEnchantablePool = createBasePoolBuilder(nonEnchantableItems, 2);
       tableBuilder.withPool(nonEnchantablePool);
     }
   }
 
-  private static LootPool.Builder createBasePoolBuilder(List<Item> items, float maxRolls) {
+  private static LootPool.Builder createBasePoolBuilder(List<Item> items, int maxRolls) {
     LootPool.Builder builder = LootPool.lootPool()
-        .setRolls(UniformGenerator.between(0.0f, maxRolls));
+        .setRolls(ContextIntProviders.between(0, maxRolls));
     for (Item item : items) {
       builder.add(LootItem.lootTableItem(item).setWeight(2));
     }
@@ -132,8 +127,8 @@ public class LootTables {
   }
 
   private static void applyDamage(LootPool.Builder builder) {
-    builder.apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.5f, 0.8f)))
-        .setBonusRolls(ConstantValue.exactly(0.5f));
+    builder.apply(SetItemDamageFunction.setDamage(ContextFloatProviders.between(0.5f, 0.8f)))
+        .setBonusRolls(ContextFloatProviders.exactly(0.5f));
   }
 
   private static void applyDamageToEnchantableItems(LootPool.Builder builder, List<Item> items) {

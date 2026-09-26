@@ -12,10 +12,10 @@ public class TinFramedGlass extends TransparentBlock {
         .instrument(NoteBlockInstrument.HAT)
         .strength(0.7F)
         .sound(SoundType.GLASS)
-        .isValidSpawn((state, world, pos, type) -> false)
-        .isRedstoneConductor((state, world, pos) -> false)
-        .isSuffocating((state, world, pos) -> false)
-        .isViewBlocking((state, world, pos) -> false)
+        .isValidSpawn((_, _, _, _) -> false)
+        .isRedstoneConductor((_, _, _) -> false)
+        .isSuffocating((_, _, _) -> false)
+        .isViewBlocking((_,_,_,_) -> false)
         .setId(id));
   }
 }

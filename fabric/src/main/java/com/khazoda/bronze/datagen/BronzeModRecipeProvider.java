@@ -5,16 +5,19 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.tag.convention.v2.ConventionalItemTags;
 import net.fabricmc.fabric.api.tag.convention.v2.TagUtil;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -26,8 +29,8 @@ public class BronzeModRecipeProvider extends FabricRecipeProvider {
   }
 
   @Override
-  protected RecipeProvider createRecipeProvider(HolderLookup.Provider registryLookup, RecipeOutput output) {
-    return new RecipeProvider(registryLookup, output) {
+  protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
+    return new RecipeProvider(recipes, advancements) {
       private static final TagKey<Item> BRONZE_INGOT_TAG = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(TagUtil.C_TAG_NAMESPACE, "ingots/bronze"));
       private static final TagKey<Item> RAW_TIN_TAG = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(TagUtil.C_TAG_NAMESPACE, "raw_materials/tin"));
       private static final TagKey<Item> TIN_INGOT_TAG = TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(TagUtil.C_TAG_NAMESPACE, "ingots/tin"));
@@ -35,7 +38,7 @@ public class BronzeModRecipeProvider extends FabricRecipeProvider {
 
       @Override
       public void buildRecipes() {
-        HolderGetter<Item> registryEntryLookup = registryLookup.lookupOrThrow(Registries.ITEM);
+        HolderGetter<Item> registryEntryLookup = registries.lookupOrThrow(Registries.ITEM);
 
         nineBlockStorageRecipes(RecipeCategory.MISC, MainRegistry.BRONZE_BLEND.get(), RecipeCategory.BUILDING_BLOCKS, MainRegistry.BRONZE_BLEND_BLOCK.get(), "crafting/bronze_blend_block", null, "crafting/bronze_blend", "bronze_blend");
         nineBlockStorageRecipes(RecipeCategory.MISC, MainRegistry.BRONZE_INGOT.get(), RecipeCategory.BUILDING_BLOCKS, MainRegistry.BRONZE_BLOCK.get(), "crafting/bronze_block", null, "crafting/bronze_ingot", "bronze_ingot");
@@ -105,7 +108,7 @@ public class BronzeModRecipeProvider extends FabricRecipeProvider {
       }
 
       private HolderSet.Named<Item> tagHolder(TagKey<Item> tag) {
-        return registryLookup.lookupOrThrow(Registries.ITEM).getOrThrow(tag);
+        return registries.lookupOrThrow(Registries.ITEM).getOrThrow(tag);
       }
     };
   }

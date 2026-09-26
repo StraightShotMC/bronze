@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:crafting/bronze_sickle"
+        "recipes": "bronze:crafting/bronze_sickle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

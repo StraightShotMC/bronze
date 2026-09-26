@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "bronze:smelting/bronze_ingot_from_smelting_bronze_blend"
+        "recipes": "bronze:smelting/bronze_ingot_from_smelting_bronze_blend"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
