@@ -2,13 +2,11 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.15
-        }
-      ],
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.15
+      },
       "entries": [
         {
           "type": "minecraft:item",
@@ -17,13 +15,11 @@
       ]
     },
     {
-      "rolls": 1.0,
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.05
-        }
-      ],
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.05
+      },
       "entries": [
         {
           "type": "minecraft:item",
@@ -32,13 +28,11 @@
       ]
     },
     {
-      "rolls": 1.0,
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.1
-        }
-      ],
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.1
+      },
       "entries": [
         {
           "type": "minecraft:tag",
@@ -48,13 +42,11 @@
       ]
     },
     {
-      "rolls": 1.0,
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.01
-        }
-      ],
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.01
+      },
       "entries": [
         {
           "type": "minecraft:tag",

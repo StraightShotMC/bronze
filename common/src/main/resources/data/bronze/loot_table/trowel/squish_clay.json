@@ -3,14 +3,13 @@
   "pools": [
     {
       "rolls": 1,
-      "conditions": [],
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:clay_ball",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": 4
             }
           ]
@@ -19,19 +18,17 @@
     },
     {
       "rolls": 1,
-      "conditions": [
-        {
-          "condition": "minecraft:random_chance",
-          "chance": 0.5
-        }
-      ],
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.5
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:clay_ball",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
+              "type": "minecraft:set_count",
               "count": 2
             }
           ]

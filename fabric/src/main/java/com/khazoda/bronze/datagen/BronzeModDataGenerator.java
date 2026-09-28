@@ -11,6 +11,7 @@ public class BronzeModDataGenerator implements DataGeneratorEntrypoint {
   public void onInitializeDataGenerator(FabricDataGenerator generator) {
     FabricDataGenerator.Pack pack = generator.createPack();
     pack.addProvider(BronzeModItemTagProvider::new);
+    pack.addProvider(BronzeModBlockLootTableProvider::new);
     pack.addProvider(BronzeModModelProvider::new);
     pack.addProvider(BronzeModAdvancementsProvider::new);
     pack.addProvider(BronzeModRecipeProvider::new);

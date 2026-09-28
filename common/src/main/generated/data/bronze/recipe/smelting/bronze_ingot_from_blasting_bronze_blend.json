@@ -1,6 +1,6 @@
 {
   "type": "minecraft:blasting",
-  "cookingtime": 100,
+  "cookingtime": 200,
   "experience": 2.8,
   "ingredient": "bronze:bronze_blend",
   "result": {

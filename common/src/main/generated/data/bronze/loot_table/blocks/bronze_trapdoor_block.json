@@ -2,17 +2,16 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1,
       "condition": {
-        "type": "minecraft:random_chance",
-        "chance": 0.05
+        "type": "minecraft:survives_explosion"
       },
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "bronze:bronze_coin"
+          "name": "bronze:bronze_trapdoor_block"
         }
-      ]
+      ],
+      "rolls": 1
     }
   ]
 }

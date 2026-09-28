@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "bronze:bronze_door_block",
+            "state": {
+              "half": "lower"
+            }
+          },
+          "name": "bronze:bronze_door_block"
+        }
+      ],
+      "rolls": 1
+    }
+  ]
+}
